@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuidora Souza Cruz - Cigarros no Atacado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hero {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.infomoney.com.br/wp-content/uploads/2019/06/souza-cruz-09-fabrica.jpg?w=1772&quality=70&strip=all');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .product-card {
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        /* Custom Souza Cruz theme colors */
+        .bg-souza-blue {
+            background-color: #003087; /* Deep blue from Souza Cruz logo */
+        }
+        .text-souza-gold {
+            color: #FFC107; /* Gold/yellow from Souza Cruz logo */
+        }
+        .bg-souza-gold {
+            background-color: #FFC107;
+        }
+        .hover\:bg-souza-gold-dark:hover {
+            background-color: #e0a800; /* Slightly darker gold for hover effects */
+        }
+        /* Highlighted price styling */
+        .price-highlight {
+            font-size: 1.25rem; /* Larger font size for emphasis */
+            font-weight: bold;
+            background-color: #FFC107; /* Souza Cruz gold background */
+            color: #003087; /* Souza Cruz blue text */
+            padding: 4px 8px; /* Padding for better readability */
+            border-radius: 4px; /* Rounded corners */
+            display: inline-block; /* Inline-block for proper spacing */
+        }
+        /* Blurred price for unavailable products */
+        .price-blurred {
+            filter: blur(3px);
+        }
+        /* Best Seller badge styling */
+        .best-seller-badge {
+            background-color: #FFC107; /* Souza Cruz gold background */
+            color: #003087; /* Souza Cruz blue text */
+            font-size: 0.875rem; /* Smaller font size for the badge */
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px; /* Space between badge and product name */
+        }
+        /* Unavailable button styling */
+        .unavailable-button {
+            background-color: #ef4444; /* Red background */
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 9999px; /* Fully rounded */
+            display: inline-block;
+            pointer-events-none; /* Disable clicking */
+            cursor: not-allowed; /* Indicate disabled state */
+        }
+        /* Centered content for product cards */
+        .product-card-content {
+            text-align: center;
+        }
+        /* Image container styling */
+        .product-image-container {
+            background-color: #e5e7eb; /* Light gray background to match card */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Mobile-first adjustments */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .product-card img {
+                height: 10rem; /* Reduced height for mobile */
+            }
+            .product-card-content {
+                padding: 16px;
+            }
+            .product-card h3 {
+                font-size: 1.1rem;
+            }
+            .product-card p {
+                font-size: 0.9rem;
+            }
+            .price-highlight {
+                font-size: 1.1rem; /* Slightly smaller on mobile */
+            }
+            .best-seller-badge {
+                font-size: 0.75rem; /* Smaller badge on mobile */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-souza-blue text-white py-4 fixed w-full top-0 z-10">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div>
+                <img src="https://logodownload.org/wp-content/uploads/2014/05/souza-cruz-logo-3.png" alt="Distribuidora Souza Cruz Logo" class="h-14">
+            </div>
+            <nav>
+                <ul class="flex space-x-4 sm:space-x-6">
+                    <li><a href="#home" class="hover:text-souza-gold text-sm sm:text-base">Início</a></li>
+                    <li><a href="#products" class="hover:text-souza-gold text-sm sm:text-base">Produtos</a></li>
+                    <li><a href="#contact" class="hover:text-souza-gold text-sm sm:text-base">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero text-white pt-24 pb-16">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Distribuidora Souza Cruz</h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-6">Qualidade e tradição no fornecimento de cigarros no atacado</p>
+            <a href="#products" class="bg-souza-gold text-souza-blue px-6 py-3 rounded-full font-semibold hover:bg-souza-gold-dark text-sm sm:text-base">Conheça Nossos Produtos</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center text-souza-blue mb-12">Nossos Produtos</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                <!-- Product 1: Dunhill Original (Best Seller) -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://i.ibb.co/NqbH0RR/348-1-removebg-preview.png" alt="Dunhill Original" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <div class="text-center">
+                            <span class="best-seller-badge">Mais Vendido</span>
+                        </div>
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Dunhill Original</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, sabor clássico.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight">R$ 150,00</p>
+                        </div>
+                        <a href="https://pay.distribuidora-alianca.site/RmA83EanKq83PVp" class="block mt-4 bg-souza-blue text-white text-center px-4 py-2 rounded-full hover:bg-souza-blue-dark text-sm sm:text-base">Comprar</a>
+                    </div>
+                </div>
+                <!-- Product 2: Dunhill Fine Cut -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://phygital-files.mercafacil.com/catalogo/uploads/produto/cigarro_london_dunhill_20_unidades_510ab8e3-db17-4e99-8f26-ad4012db422a.png" alt="Dunhill Fine Cut" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Dunhill Fine Cut</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, suave e elegante.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight">R$ 140,00</p>
+                        </div>
+                        <a href="https://pay.distribuidora-alianca.site/mwK436d8rXWGQ8b" class="block mt-4 bg-souza-blue text-white text-center px-4 py-2 rounded-full hover:bg-souza-blue-dark text-sm sm:text-base">Comprar</a>
+                    </div>
+                </div>
+                <!-- Product 3: Rothmans Signature Box -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://phygital-files.mercafacil.com/catalogo/uploads/produto/cigarro_blue_rothmans_signature_box_eb5ced4e-b843-40af-aab6-676b39089a34.png" alt="Rothmans Signature Box" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Rothmans Signature Box</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, sabor clássico.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight">R$ 125,00</p>
+                        </div>
+                        <a href="https://pay.distribuidora-alianca.site/BNjzgPlyw2wgM78" class="block mt-4 bg-souza-blue text-white text-center px-4 py-2 rounded-full hover:bg-souza-blue-dark text-sm sm:text-base">Comprar</a>
+                    </div>
+                </div>
+                <!-- Product 4: Black Menthol Kretek -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://phygital-files.mercafacil.com/catalogo/uploads/produto/cigarro_kretek_menthol_djarum_black_20_unidades_c2e81b70-a741-461f-aa8b-3558367bfde9.png" alt="Black Menthol Kretek" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Black Menthol Kretek</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, Sabor Exótico e Refrescante.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight">R$ 225,00</p>
+                        </div>
+                        <a href="https://pay.distribuidora-alianca.site/DYp0ZxVlB1jgmvX" class="block mt-4 bg-souza-blue text-white text-center px-4 py-2 rounded-full hover:bg-souza-blue-dark text-sm sm:text-base">Comprar</a>
+                    </div>
+                </div>
+                <!-- Product 5: Marlboro Gold (Unavailable) -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://phygital-files.mercafacil.com/catalogo/uploads/produto/cigarro_gold_marlboro_ma_o_dfc56a8c-47cf-4f65-896e-4808d5f15324.png" alt="Marlboro Gold" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Marlboro Gold</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, leve e equilibrado.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight price-blurred">R$ 130,00</p>
+                        </div>
+                        <span class="block mt-4 unavailable-button">Indisponível</span>
+                    </div>
+                </div>
+                <!-- Product 6: Marlboro Red -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://phygital-files.mercafacil.com/catalogo/uploads/produto/cigarro_red_selection_marlboro_box_1b59731d-30ce-4549-adc8-146000fe8dda.png" alt="Marlboro Red" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Marlboro Red</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, sabor intenso.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight">R$ 130,00</p>
+                        </div>
+                        <a href="https://pay.distribuidora-alianca.site/nQ7kZ7p2jENG0eJ" class="block mt-4 bg-souza-blue text-white text-center px-4 py-2 rounded-full hover:bg-souza-blue-dark text-sm sm:text-base">Comprar</a>
+                    </div>
+                </div>
+                <!-- Product 7: Camel Blue (Unavailable) -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://phygital-files.mercafacil.com/catalogo/uploads/produto/cigarro_camel_blue_323e85da-7e7d-4283-9922-29cca843586a.png" alt="Camel Blue" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Camel Blue</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, suave e marcante.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight price-blurred">R$ 120,00</p>
+                        </div>
+                        <span class="block mt-4 unavailable-button">Indisponível</span>
+                    </div>
+                </div>
+                <!-- Product 8: Camel Yellow (Unavailable) -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://tabak.kkiosk.ch/cdn/shop/files/Camel_Yellow_Box_Filters.png?v=1730903475&width=600" alt="Camel Yellow" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Camel Yellow</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, sabor clássico.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight price-blurred">R$ 120,00</p>
+                        </div>
+                        <span class="block mt-4 unavailable-button">Indisponível</span>
+                    </div>
+                </div>
+                <!-- Product 9: Lucky Strike Original (Unavailable) -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://i.ibb.co/v6YZFNCL/sdasfgsdgsd-removebg-preview.png" alt="Lucky Strike Original" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Lucky Strike Original</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, sabor autêntico.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight price-blurred">R$ 115,00</p>
+                        </div>
+                        <span class="block mt-4 unavailable-button">Indisponível</span>
+                    </div>
+                </div>
+                <!-- Product 10: Lucky Strike Mentolado -->
+                <div class="product-card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                    <div class="product-image-container">
+                        <img src="https://i.ibb.co/v6S2kbHp/fafasfsafasf-removebg-preview.png" alt="Lucky Strike Mentolado" class="w-full h-40 sm:h-40 object-contain">
+                    </div>
+                    <div class="product-card-content">
+                        <h3 class="text-lg sm:text-lg font-semibold text-souza-blue">Lucky Strike Mentolado</h3>
+                        <p class="text-gray-600 text-sm sm:text-base">Caixa com 20 maços, mentolado.</p>
+                        <div class="text-center mt-2">
+                            <p class="price-highlight">R$ 115,00</p>
+                        </div>
+                        <a href="https://pay.distribuidora-alianca.site/RmA83Eanlx83PVp" class="block mt-4 bg-souza-blue text-white text-center px-4 py-2 rounded-full hover:bg-souza-blue-dark text-sm sm:text-base">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-souza-blue text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-8">Entre em Contato</h2>
+            <p class="text-base sm:text-lg mb-6">Estamos prontos para atender sua distribuidora com o melhor em cigarros no atacado.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <p class="text-sm sm:text-base"><strong>Email:</strong> contato@souzacruz.com.br</p>
+                <p class="text-sm sm:text-base"><strong>Telefone:</strong> (11) 1234-5678</p>
+                <p class="text-sm sm:text-base"><strong>WhatsApp:</strong> (11) 98765-4321</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-souza-blue text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2 text-sm sm:text-base">Distribuidora Souza Cruz - Todos os direitos reservados © 2025</p>
+            <p class="text-xs sm:text-sm">CNPJ: 12.345.678/0001-99 | São Paulo, SP</p>
+        </div>
+    </footer>
+
+    <!-- Include the location script -->
+    <script src="location.js"></script>
+</body>
+</html>
